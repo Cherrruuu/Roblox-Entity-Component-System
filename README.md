@@ -1,6 +1,8 @@
 # Roblox Entity-Component-System
 A Entity-Component-System library for Roblox
 
+[Roblox Place File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/tree/master/Other)
+
 ## Documentation from ECS.lua
 
 ### AUTHOR
