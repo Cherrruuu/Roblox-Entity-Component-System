@@ -1,7 +1,7 @@
 # Roblox Entity-Component-System
 A Entity-Component-System library for Roblox
 
-#AUTHOR
+# AUTHOR
 
 
 
@@ -13,7 +13,7 @@ For help contact her by DM on Twitter, or Roblox messages.
 
 
 
-#DOCUMENTATION
+# DOCUMENTATION
 
 
 
@@ -60,7 +60,7 @@ TO TEST PLEASE USE CLIENTS AND SERVERS TESTING UNDER THE TEST TAB.
 
 
 
-#TERMINOLOGY
+# TERMINOLOGY
 
 
 
@@ -83,7 +83,7 @@ an Position Component, Health Component, etc..
 
 
 
-#METHODS
+# METHODS
 
 
 
@@ -120,7 +120,7 @@ number ECS.getAmountOfSystems()
 
 
 
-#HOW TO USE
+# HOW TO USE
 
 
 
