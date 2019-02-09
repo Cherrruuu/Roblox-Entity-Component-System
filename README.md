@@ -1,7 +1,7 @@
 # Roblox Entity-Component-System
 A Entity-Component-System library for Roblox
 
-##Documentation from ECS.lua
+## Documentation from ECS.lua
 
 ### AUTHOR
 
