@@ -1,7 +1,8 @@
 # Roblox Entity-Component-System
 A Entity-Component-System library for Roblox
 
-[Roblox Place File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/tree/master/Other)
+[Roblox Place File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/blob/master/Other/ECS.rbxl)
+[Example Game Place File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/blob/master/Other/Coin-Collect-Example-Game.rbxl)
 
 ## Documentation from ECS.lua
 
