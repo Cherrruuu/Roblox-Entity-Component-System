@@ -101,31 +101,51 @@ ECS ECS.create()
 
 
 Entity ECS.createEntity(number id)
+
 Entity, bool ECS.removeEntity(number id)
+
 void ECS.addEntities(Entity[] entities) --STRICTLY A FUNCTION FOR THE DEFAULT REPLICATION SYSTEM, NOTHING ELSE SHOULD USE THIS
+
 Entity[] ECS.getEntities()
+
 number ECS.getAmountOfEntities()
+
 bool ECS.entityHasComponent(number id, string[] componentNames)
+
 Entity[] ECS.getEntitiesWithComponents(string[] componentNames)
+
 Components[] ECS.getComponentsFromEntity(number id, string[] componentNames)
+
 Components[] ECS.getEntityComponents(number id)
+
 number ECS.getAmountOfEntityComponents(number id)
 
 
 void ECS.addComponent(Entity entity, string componentName)
+
 bool ECS.removeComponent(Entity entity, string componentName)
-unknown ECS.getComponentValue(Entity entity, string componentName, string index) --index, is the index of the component's data table that you want to check
+
+unknown ECS.getComponentValue(Entity entity, string componentName, string index) --index, is the index of the component's data 
+table that you want to check
+
 void ECS.setComponentValue(Entity entity, string componentName, string index, anyDataType value)
+
 void ECS.updateComponents(Entity entity, Component[] components)
+
 Components[] ECS.getComponents()
+
 number ECS.getAmountOfComponents()
 
+
 Entity ECS.createAssemblage(string assemblageName, number id, varargs ...) --note: varargs (denoted by the ... syntax) are a random number of variables you can include as parameters
+
 modules[] ECS.getAssemblages()
+
 number ECS.getAmountOfAssemblages()
 
 
 Systems[] ECS.getSystems()
+
 number ECS.getAmountOfSystems()
 
 
