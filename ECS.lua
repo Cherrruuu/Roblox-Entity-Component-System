@@ -7,8 +7,10 @@ AUTHOR
 Written by: Cherrys_Life
 Twitter: @Cherrys__Life
 Date Created: January 7th, 2019
-Date Modified: February 7th, 2019
+Date Modified: February 9th, 2019
 For help contact her by DM on Twitter, or Roblox messages.
+
+Github for the library: https://github.com/Cherrruuu/Roblox-Entity-Component-System
 
 
 
