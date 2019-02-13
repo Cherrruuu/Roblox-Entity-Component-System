@@ -1,6 +1,11 @@
 # Roblox Entity-Component-System
 A Entity-Component-System library for Roblox
 
+# Latest Update
+Added Server, Client, and Shared folders for Components and Assemblages just like the Systems folder. This way only certain ones will be required depending if Client or Server. Server will now only get Systems, Components, and Assemblages in Server and Shared folders. Clients will now only get Systems, Components, and Assemblages in Client and Shared folders.
+
+## Links
+
 [Roblox Place File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/blob/master/Other/ECS.rbxl)
 
 [Example Game Place File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/blob/master/Other/Coin-Collect-Example-Game.rbxl)
