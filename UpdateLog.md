@@ -1,0 +1,2 @@
+## January 12th, 2019
+Added Server, Client, and Shared folders for Components and Assemblages just like the Systems folder. This way only certain ones will be required depending if Client or Server. Server will now only get Systems, Components, and Assemblages in Server and Shared folders. Clients will now only get Systems, Components, and Assemblages in Client and Shared folders.
