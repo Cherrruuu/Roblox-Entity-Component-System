@@ -59,6 +59,10 @@ Systems put in the Shared folder will be required by both.
 FINAL NOTE: WHEN TESTING, DO NOT TEST IN PLAY TEST AS IT WILL NOT RUN AS EXPECTED DUE TO THERE NOT BEING PROPER CLIENTS AND SERVERS.
 TO TEST PLEASE USE CLIENTS AND SERVERS TESTING UNDER THE TEST TAB.
 
+P.S.: As of Febrauary 13th, 2019 the Server folders for Systems, Components, and Assemblages were put into their own folder, so they can reside
+in ServerScriptService. This way exploiters can't just read your Server code from it being in ReplicatedStorage with the rest of the stuff.
+The separate folder for the Server also has its own Bindables folder, but the Remotes folder is still under the ECS ModuleScript.
+
 
 
 TERMINOLOGY
@@ -129,7 +133,8 @@ Look to the "Example" script on how to setup a game loop with the ECS library.
 
 -------------------]]
 
-local runService = game:GetService("RunService")
+local scriptService = game:GetService("ServerScriptService")
+local runService    = game:GetService("RunService")
 
 
 local entityModule = require(script.Entity)
@@ -152,29 +157,49 @@ ECS.ready = false
 
 function ECS.create()
 	
-	for componentIndex, component in next, script.Components:GetDescendants() do
-		
-		if (component.ClassName == "ModuleScript" and component.Name ~= "Template") then
-			
-			ECS.components[component.Name] = component
-			
-		end
-		
-	end
-	
-	for assemblageIndex, assemblage in next, script.Assemblages:GetDescendants() do
-		
-		if (assemblage.ClassName == "ModuleScript" and assemblage.Name ~= "Template") then
-			
-			ECS.assemblages[assemblage.Name] = assemblage
-			
-		end
-		
-	end
-	
 	if (isServer) then
 	
-		local systems = script.Systems.Server:GetDescendants()
+		for componentIndex, component in next, scriptService.ECS.Components:GetDescendants() do
+		
+			if (component.ClassName == "ModuleScript" and component.Name ~= "Template") then
+				
+				ECS.components[component.Name] = component
+				
+			end
+			
+		end
+		
+		for componentIndex, component in next, script.Components.Shared:GetDescendants() do
+		
+			if (component.ClassName == "ModuleScript" and component.Name ~= "Template") then
+				
+				ECS.components[component.Name] = component
+				
+			end
+			
+		end
+		
+		for assemblageIndex, assemblage in next, scriptService.ECS.Assemblages:GetDescendants() do
+			
+			if (assemblage.ClassName == "ModuleScript" and assemblage.Name ~= "Template") then
+				
+				ECS.assemblages[assemblage.Name] = assemblage
+				
+			end
+			
+		end
+		
+		for assemblageIndex, assemblage in next, script.Assemblages.Shared:GetDescendants() do
+			
+			if (assemblage.ClassName == "ModuleScript" and assemblage.Name ~= "Template") then
+				
+				ECS.assemblages[assemblage.Name] = assemblage
+				
+			end
+			
+		end
+	
+		local systems = scriptService.ECS.Systems:GetDescendants()
 		
 		for systemIndex, system in next, systems do
 			
@@ -187,6 +212,46 @@ function ECS.create()
 		end
 		
 	else
+		
+		for componentIndex, component in next, script.Components.Client:GetDescendants() do
+		
+			if (component.ClassName == "ModuleScript" and component.Name ~= "Template") then
+				
+				ECS.components[component.Name] = component
+				
+			end
+			
+		end
+		
+		for componentIndex, component in next, script.Components.Shared:GetDescendants() do
+		
+			if (component.ClassName == "ModuleScript" and component.Name ~= "Template") then
+				
+				ECS.components[component.Name] = component
+				
+			end
+			
+		end
+		
+		for assemblageIndex, assemblage in next, script.Assemblages.Client:GetDescendants() do
+			
+			if (assemblage.ClassName == "ModuleScript" and assemblage.Name ~= "Template") then
+				
+				ECS.assemblages[assemblage.Name] = assemblage
+				
+			end
+			
+		end
+		
+		for assemblageIndex, assemblage in next, script.Assemblages.Shared:GetDescendants() do
+			
+			if (assemblage.ClassName == "ModuleScript" and assemblage.Name ~= "Template") then
+				
+				ECS.assemblages[assemblage.Name] = assemblage
+				
+			end
+			
+		end
 		
 		local systems = script.Systems.Client:GetDescendants()
 		
