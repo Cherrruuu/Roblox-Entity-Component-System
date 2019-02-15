@@ -8,7 +8,7 @@ The separate folder for the Server also has its own Bindables folder, but the Re
 
 ## Links
 
-[Roblox Place File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/blob/master/Other/ECS.rbxl)
+[Roblox Model File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/blob/master/Other/ECS.rbxm)
 
 [Example Game Place File](https://github.com/Cherrruuu/Roblox-Entity-Component-System/blob/master/Other/Coin-Collect-Example-Game.rbxl)
 
