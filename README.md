@@ -2,9 +2,10 @@
 A Entity-Component-System library for Roblox
 
 # Latest Update
-The Server folders for Systems, Components, and Assemblages were put into their own folder, so they can reside
-in ServerScriptService. This way exploiters can't just read your Server code from it being in ReplicatedStorage with the rest of the stuff.
-The separate folder for the Server also has its own Bindables folder, but the Remotes folder is still under the ECS ModuleScript.
+Added new function: ECS.getEntityByID()
+Entity ECS.getEntityByID(number id)
+Use this function to find entities by IDs, is helpful for when you use bindables, since bindables can't send entities
+without breaking the metatables of entities.
 
 ## Links
 
