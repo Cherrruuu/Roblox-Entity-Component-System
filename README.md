@@ -3,7 +3,9 @@ A Entity-Component-System library for Roblox
 
 # Latest Update
 Added new function: ECS.getEntityByID()
+
 Entity ECS.getEntityByID(number id)
+
 Use this function to find entities by IDs, is helpful for when you use bindables, since bindables can't send entities
 without breaking the metatables of entities.
 
