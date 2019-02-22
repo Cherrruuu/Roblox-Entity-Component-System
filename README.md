@@ -2,12 +2,9 @@
 A Entity-Component-System library for Roblox
 
 # Latest Update
-Added new function: ECS.getEntityByID()
-
-Entity ECS.getEntityByID(number id)
-
-Use this function to find entities by IDs, is helpful for when you use bindables, since bindables can't send entities
-without breaking the metatables of entities.
+Fixed issue with Assemblages not being able to update components from creation of the Assemblage.
+ECS.addComponent and Entity.addComponent both now take a new parameter of "values" which is a dictionary
+that can be used to give new default values to a component on addition of a component to an entity.
 
 ## Links
 
