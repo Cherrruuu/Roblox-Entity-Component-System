@@ -1,3 +1,9 @@
+## February 21st, 2019
+Fixed issue with Assemblages not being able to update components from creation of the Assemblage.
+ECS.addComponent and Entity.addComponent both now take a new parameter of "values" which is a dictionary
+that can be used to give new default values to a component on addition of a component to an entity.
+
+
 ## February 14th, 2019
 Added new function: ECS.getEntityByID()
 
