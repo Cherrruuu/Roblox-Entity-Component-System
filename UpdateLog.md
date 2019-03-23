@@ -1,3 +1,9 @@
+## March 23rd, 2019
+Fixed an unknown issue with Components not working properly. Despite being different tables,
+they had the same values. This could cause many issues with Players having the same data, or entities
+having same data.
+
+
 ## February 21st, 2019
 Fixed issue with Assemblages not being able to update components from creation of the Assemblage.
 ECS.addComponent and Entity.addComponent both now take a new parameter of "values" which is a dictionary
