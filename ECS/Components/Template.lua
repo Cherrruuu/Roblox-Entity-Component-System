@@ -8,28 +8,30 @@ it ignores nil values and won't update that client's version of the entity's com
 
 -------------------]]
 
-local component = {}
-component.name   = "test"
-component.data   = {
+local component  = {}
+component.name    = "Template"
+component.__index = component
 
-	["test"] = true
-	
-}
 
-function component.returnCopy()
+function component.create()
 	
-	local new = {}
-	new.name  = component.name
-	new.data  = {}
+	local name = component.name
 	
-	for dataIndex, data in next, component.data do
+	local data = {
+
+		["test"] = true
 		
-		new.data[dataIndex] = data
-		
-	end
+	}
 	
-	return new
+	local self = setmetatable({
+		
+		name = name,
+		data = data
+		
+	}, component)
+	
+	return self
 	
 end
 
-return component.returnCopy
+return component.create

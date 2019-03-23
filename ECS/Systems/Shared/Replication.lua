@@ -160,7 +160,9 @@ function replicateEntities(entities)
 end
 
 
-system.run = function(entities)
+while (true) do 
+
+	local entities = ECS.getEntities()
 	
 	if (system.isServer) then
 	
@@ -187,6 +189,8 @@ system.run = function(entities)
 		
 	end
 	
+	wait()
+
 end
 
 

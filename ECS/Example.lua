@@ -38,22 +38,3 @@ for systemIndex, system in next, ECS:getSystems() do
 	end
 	
 end
-
-
-while (true) do
-	
-	local entities = ECS:getEntities()
-	
-	for systemIndex, system in next, ECS:getSystems() do
-		
-		if (system.run) then --we do this in case we want to leave out the run function for whatever reason (like using a system as a regular module, or as a regular script)
-		
-			system.run(entities)
-			
-		end
-		
-	end
-	
-	wait()
-	
-end

@@ -1,26 +1,28 @@
-local component = {}
-component.name   = "Replicate"
-component.data   = {
+local component  = {}
+component.name    = "Replicate"
+component.__index = component
 
-	["isReplicating"] = true, --Set this to false if you don't want the entity to replicate just yet.
-	["Players"]       = {} --if you want to replicate to specific players, put their Player objects in this table, this can be done during runtime.
+function component.create()
 	
-}
+	local name = component.name
+	
+	local data = {
 
-function component.returnCopy()
-	
-	local new = {}
-	new.name  = component.name
-	new.data  = {}
-	
-	for dataIndex, data in next, component.data do
+		["isReplicating"]            = true, --Set this to false if you don't want the entity to replicate just yet.
+		["Players"]                  = {}, --if you want to replicate to specific players, put their Player objects in this table, this can be done during runtime.
+		["ComponentsToNotReplicate"] = {} --add the name of components here that you don't want to be replicated
 		
-		new.data[dataIndex] = data
-		
-	end
+	}
 	
-	return new
+	local self = setmetatable({
+		
+		name = name,
+		data = data
+		
+	}, component)
+	
+	return self
 	
 end
 
-return component.returnCopy
+return component.create

@@ -7,7 +7,7 @@ AUTHOR
 Written by: Cherrys_Life
 Twitter: @Cherrys__Life
 Date Created: January 7th, 2019
-Date Modified: February 9th, 2019
+Date Modified: March 23rd, 2019
 For help contact her by DM on Twitter, or Roblox messages.
 
 Github for the library: https://github.com/Cherrruuu/Roblox-Entity-Component-System
@@ -98,6 +98,7 @@ ECS ECS.create()
 Entity ECS.createEntity(number id)
 Entity, bool ECS.removeEntity(number id)
 void ECS.addEntities(Entity[] entities) --STRICTLY A FUNCTION FOR THE DEFAULT REPLICATION SYSTEM, NOTHING ELSE SHOULD USE THIS
+Entity ECS.getEntityByID(number id)
 Entity[] ECS.getEntities()
 number ECS.getAmountOfEntities()
 bool ECS.entityHasComponent(number id, string[] componentNames)
@@ -353,6 +354,21 @@ function ECS.addEntities(entities) --STRICTLY A FUNCTION FOR THE DEFAULT REPLICA
 end
 
 if (not isServer) then script.Remotes.Events.ECS.Entity.addEntities.OnClientEvent:Connect(function(...) return ECS.addEntities(...) end) end
+
+
+function ECS.getEntityByID(id)
+	
+	for entityIndex, entity in next, ECS.entities do
+		
+		if (entity.id == id) then
+			
+			return entity
+			
+		end
+		
+	end 
+	
+end
 
 
 function ECS.getEntities()

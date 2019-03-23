@@ -23,31 +23,6 @@ system.order      = nil
 --whatever functions you want to use and modules you want to require can go in between here. same for variables.
 
 
-system.run = function(entities)
-	
-	local currentEntity
-	
-	for entityIndex, entity in next, entities do
-		
-		if (entity) then --check just in case rbx.lua's garbage collection doesn't remove an entity in time
-		
-			currentEntity = entity
-			
-			local hasComponents = entity:hasComponents(system.components)
-			
-			if (hasComponents) then
-				
-				--do whatever logic checks you need here to affect whichever component
-				
-			end
-		
-		end
-		
-	end
-	
-end
-
-
 system.init = function()
 	
 	print("initiated")
