@@ -2,9 +2,9 @@
 A Entity-Component-System library for Roblox
 
 # Latest Update
-Fixed an unknown issue with Components not working properly. Despite being different tables,
-they had the same values. This could cause many issues with Players having the same data, or entities
-having same data.
+Added a new function, ECS.copyEntity
+Takes a single parameter of "id" which is the id of the entity you wish to copy.
+This function copys all components and the data in the components of the copied entity.
 
 ## Links
 
