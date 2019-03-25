@@ -7,7 +7,7 @@ AUTHOR
 Written by: Cherrys_Life
 Twitter: @Cherrys__Life
 Date Created: January 7th, 2019
-Date Modified: March 23rd, 2019
+Date Modified: February 9th, 2019
 For help contact her by DM on Twitter, or Roblox messages.
 
 Github for the library: https://github.com/Cherrruuu/Roblox-Entity-Component-System
@@ -97,6 +97,7 @@ ECS ECS.create()
 
 Entity ECS.createEntity(number id)
 Entity, bool ECS.removeEntity(number id)
+Entity ECS.copyEntity(number id)
 void ECS.addEntities(Entity[] entities) --STRICTLY A FUNCTION FOR THE DEFAULT REPLICATION SYSTEM, NOTHING ELSE SHOULD USE THIS
 Entity ECS.getEntityByID(number id)
 Entity[] ECS.getEntities()
@@ -108,7 +109,7 @@ Components[] ECS.getEntityComponents(number id)
 number ECS.getAmountOfEntityComponents(number id)
 
 
-void ECS.addComponent(Entity entity, string componentName)
+void ECS.addComponent(Entity entity, string componentName, Dictionary values)
 bool ECS.removeComponent(Entity entity, string componentName)
 unknown ECS.getComponentValue(Entity entity, string componentName, string index) --index, is the index of the component's data table that you want to check
 void ECS.setComponentValue(Entity entity, string componentName, string index, anyDataType value)
@@ -148,6 +149,9 @@ ECS.entities    = {}
 ECS.components  = {}
 ECS.assemblages = {}
 ECS.systems     = {}
+
+
+ECS.player = nil --for clients
 
 
 local isServer = runService:IsServer()
@@ -331,6 +335,59 @@ function ECS.removeEntity(id)
 end
 
 
+function ECS.copyEntity(id)
+
+	local function copy(tab)
+		
+		local new = {}
+		
+		for dataIndex, data in next, tab do
+			
+			if (type(data) == "table") then
+				
+				data = copy(data)
+				
+			end
+			
+			print(dataIndex, data)
+			
+			new[dataIndex] = data
+			
+		end
+		
+		return new
+		
+	end
+
+	if (type(id) ~= "number" and type(id) ~= "string") then return end
+	
+	local exists = ECS.entities[id]
+	
+	if (exists) then
+		
+		local entity = ECS.entities[id]
+		
+		local clone = ECS.createEntity()
+		
+		for componentIndex, component in next, entity.components do
+			
+			local data = copy(component.data)
+			
+			if (data) then
+				
+				ECS.addComponent(clone, component.name, data)
+				
+			end
+			
+		end
+		
+		return clone
+		
+	end
+	
+end
+
+
 function ECS.addEntities(entities) --STRICTLY A FUNCTION FOR THE DEFAULT REPLICATION SYSTEM, NOTHING ELSE SHOULD USE THIS
 	
 	for entityIndex, entity in next, entities do
@@ -481,9 +538,9 @@ end
 --Components
 
 
-function ECS.addComponent(entity, component)
+function ECS.addComponent(entity, component, values)
 	
-	entity:addComponent(ECS.components[component])
+	entity:addComponent(ECS.components[component], values)
 	
 end
 
