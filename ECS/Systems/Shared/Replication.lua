@@ -160,7 +160,7 @@ function replicateEntities(entities)
 end
 
 
-while (true) do 
+system.run = function(entities)
 
 	local entities = ECS.getEntities()
 	
