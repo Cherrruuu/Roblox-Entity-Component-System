@@ -1,10 +1,12 @@
-# Roblox Entity-Component-System
-A Entity-Component-System library for Roblox
+# THIS REPOSITORY WILL NO LONGER BE UPDATED BEYOND FIXES
+If it wasn't obvious from the last time a commit was done to this repository, this thing is no longer maintained anyway. I wasn't happy with how this ended up turning out, and ran into quite a few issues while trying to work with it. I approached the ECS problem on Roblox incorrectly, not fully taking into account how Roblox handles things, instead I tried to bruteforce Roblox to work with this framework, instead of trying to get them to play together nicely.
+
+I may try to approach a ECS framework on Roblox again in the future, but I'll do a better job at it in the future.
+
+# A Entity-Component-System library for Roblox
 
 # Latest Update
-Added a new function, ECS.copyEntity
-Takes a single parameter of "id" which is the id of the entity you wish to copy.
-This function copys all components and the data in the components of the copied entity.
+Fixed a issue with using the Replications Shared System, that caused everything to hang. (reported by YourFriendlyError)
 
 ## Links
 
@@ -22,8 +24,8 @@ Twitter post about the library [here](https://twitter.com/Cherrys__Life/status/1
 
 
 
-Written by: Cherrys_Life
-Twitter: @Cherrys__Life
+Written by: meowchun
+Twitter: @meowchun
 Date Created: January 7th, 2019
 Date Modified: February 7th, 2019
 For help contact her by DM on Twitter, or Roblox messages.
